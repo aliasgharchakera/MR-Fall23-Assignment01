@@ -31,41 +31,183 @@
 \maketitle
 
 \begin{questions}
-    \question Problem 1
-    \begin{parts}
-        \part Part a
-        \begin{solution}
-            abc
-        \end{solution}
-    \end{parts}
-    \question Problem 2
-    \begin{parts}
-        \part Part a
-        \begin{solution}
-            abc
-        \end{solution}
-    \end{parts}
-    \question Problem 3
-    \begin{parts}
-        \part Part a
-        \begin{solution}
-            abc
-        \end{solution}
-    \end{parts}
-    \question Problem 4
-    \begin{parts}
-        \part Part a
-        \begin{solution}
-            abc
-        \end{solution}
-    \end{parts}
-    \question Problem 5
-    \begin{parts}
-        \part Part a
-        \begin{solution}
-            abc
-        \end{solution}
-    \end{parts}
+\question Problem 1
+\begin{parts}
+\part Part a
+\begin{solution}
+    abc
+\end{solution}
+\part Part b
+\begin{solution}
+    For $R^w_a$, we have to rotate the $y_w$ axis along the $z_w$ axis by $-90^{\circ}$ and the $x_w$ axis along the $y_w$ axis by $-90^{\circ}$.
+
+    \begin{equation*}
+        R^w_a = R^w_y(-90^{\circ})R^w_x(-90^{\circ})
+    \end{equation*}
+
+    \begin{equation*}
+        R^w_a = \begin{bmatrix}
+            cos(-90^{\circ}) & -sin(-90^{\circ}) & 0 \\
+            sin(-90^{\circ}) & cos(-90^{\circ})  & 0 \\
+            0                & 0                 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+            cos(-90^{\circ})  & 0 & sin(-90^{\circ}) \\
+            0                 & 1 & 0                \\
+            -sin(-90^{\circ}) & 0 & cos(-90^{\circ})
+        \end{bmatrix}
+    \end{equation*}
+
+    \begin{equation*}
+        R^w_a = \begin{bmatrix}
+            0  & 1 & 0 \\
+            -1 & 0 & 0 \\
+            0  & 0 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+            0 & 0 & -1 \\
+            0 & 1 & 0  \\
+            1 & 0 & 0
+        \end{bmatrix}
+    \end{equation*}
+
+    \begin{equation*}
+        R^w_a = \begin{bmatrix}
+            0 & 1 & 0 \\
+            0 & 0 & 1 \\
+            1 & 0 & 0
+        \end{bmatrix}
+    \end{equation*}
+
+    For $R^w_b$, we have to rotate the world frame along the $x_w$ axis by
+    $90^{\circ}$.
+
+    \begin{equation*}
+        R^w_b = R^w_x(90^{\circ})
+    \end{equation*}
+
+    \begin{equation*}
+        R^w_b = \begin{bmatrix}
+            1 & 0               & 0                \\
+            0 & cos(90^{\circ}) & -sin(90^{\circ}) \\
+            0 & sin(90^{\circ}) & cos(90^{\circ})
+        \end{bmatrix}
+    \end{equation*}
+
+    \begin{equation*}
+        R^w_b = \begin{bmatrix}
+            1 & 0 & 0  \\
+            0 & 0 & -1 \\
+            0 & 1 & 0
+        \end{bmatrix}
+    \end{equation*}
+\end{solution}
+\part Part c
+\begin{solution}
+We can leverage the fact that the rotation matrix is orthogonal and
+that the inverse of an orthogonal matrix is its transpose.
+
+\begin{equation*}
+    (R^w_b)^{-1} = (R^w_b)^T
+\end{equation*}
+\begin{equation*}
+    (R^w_b)^{-1} = \begin{bmatrix}
+        1 & 0  & 0 \\
+        0 & 0  & 1 \\
+        0 & -1 & 0
+    \end{bmatrix}
+\end{equation*}
+
+In order to verify that $(R^w_b)^{-1} = (R^w_b)^T$, we can use the inverse to
+transform a vector from the $b$ frame to the $w$ frame.
+
+$x$-axis in $b$ frame is $[1, 0, 0]^T$.
+\begin{equation*}
+(R^w_b)^{-1} [1, 0, 0]^T = \begin{bmatrix}
+    1 & 0  & 0 \\
+    0 & 0  & 1 \\
+    0 & -1 & 0
+\end{bmatrix}
+\begin{bmatrix}
+    1 \\
+    0 \\
+    0
+\end{bmatrix}
+= \begin{bmatrix}
+1 \\
+0 \\
+0
+\end{bmatrix}
+\end{equation*}
+
+$y$-axis in $b$ frame is $[0, 0, 1]^T$.
+\begin{equation*}
+(R^w_b)^{-1} [0, 0, 1]^T = \begin{bmatrix}
+    1 & 0  & 0 \\
+    0 & 0  & 1 \\
+    0 & -1 & 0
+\end{bmatrix}
+\begin{bmatrix}
+    0 \\
+    0 \\
+    1
+\end{bmatrix}
+= \begin{bmatrix}
+0 \\
+1 \\
+0
+\end{bmatrix}
+\end{equation*}
+
+$z$-axis in $b$ frame is $[0, -1, 0]^T$.
+\begin{equation*}
+(R^w_b)^{-1} [0, -1, 0]^T = \begin{bmatrix}
+    1 & 0  & 0 \\
+    0 & 0  & 1 \\
+    0 & -1 & 0
+\end{bmatrix}
+\begin{bmatrix}
+    0  \\
+    -1 \\
+    0
+\end{bmatrix}
+= \begin{bmatrix}
+0 \\
+0 \\
+1
+\end{bmatrix}
+\end{equation*}
+
+\end{solution}
+\end{parts}
+\question Problem 2
+\begin{parts}
+    \part Part a
+    \begin{solution}
+        abc
+    \end{solution}
+\end{parts}
+\question Problem 3
+\begin{parts}
+    \part Part a
+    \begin{solution}
+        abc
+    \end{solution}
+\end{parts}
+\question Problem 4
+\begin{parts}
+    \part Part a
+    \begin{solution}
+        abc
+    \end{solution}
+\end{parts}
+\question Problem 5
+\begin{parts}
+    \part Part a
+    \begin{solution}
+        abc
+    \end{solution}
+\end{parts}
 
 \end{questions}
 \end{document}
