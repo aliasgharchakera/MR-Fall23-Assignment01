@@ -180,6 +180,44 @@
             \end{equation*}
 
         \end{solution}
+
+        \part Part d
+        \begin{solution}
+            To calculate the rotation matrix $R^a_b$, we can use the following formula:
+            \begin{equation*}
+                R^a_b = R^a_w R^w_b
+            \end{equation*}
+            We already have $R^w_b$ and we can get $R^a_w$ by taking the inverse of $R^w_a$.
+            \begin{equation*}
+                R^a_w = (R^w_a)^{-1} = (R^w_a)^T = \begin{bmatrix}
+                    0 & 0 & 1 \\
+                    1 & 0 & 0 \\
+                    0 & 1 & 0
+                \end{bmatrix}
+            \end{equation*}
+            \begin{equation*}
+                R^a_b = \begin{bmatrix}
+                    0 & 0 & 1 \\
+                    1 & 0 & 0 \\
+                    0 & 1 & 0
+                \end{bmatrix}
+                \begin{bmatrix}
+                    1 & 0 & 0  \\
+                    0 & 0 & -1 \\
+                    0 & 1 & 0
+                \end{bmatrix}
+                = \begin{bmatrix}
+                    0 & 1 & 0  \\
+                    1 & 0 & 0 \\
+                    0 & 0 & -1
+                \end{bmatrix}
+            \end{equation*}
+            Ans.
+        \end{solution}
+        \part Part e
+        \begin{solution}
+            
+        \end{solution}
     \end{parts}
     \question Problem 2
     \begin{parts}
@@ -200,19 +238,22 @@
                 v^w_c = v^w_v + ({\omega}^v_s \times r^s_c) + ({\omega}^w_v \times r^v_c)
             \end{align*}
 
-            Since there is no wheel offset $r^s_c$ will be 0. The equation will be simplified as followed:
+            Since there is no wheel offset $r^s_c$ will be 0. The equation will be
+            simplified as followed:
 
             \begin{align*}
                 v^w_c = v^w_v + ({\omega}^w_v \times r^v_c)
             \end{align*}
 
-            The distance from the wheel to the center of the robot will be considered as l. $V_z$ will always be 0 because the robot is constrained to move in x-y plane due to the robot always being on the plane.  
+            The distance from the wheel to the center of the robot will be considered as l.
+            $V_z$ will always be 0 because the robot is constrained to move in x-y plane
+            due to the robot always being on the plane.
 
             \textbf{For wheel 1 where $\alpha_1 = 0^\circ$}
 
             \begin{equation*}
                 \begin{bmatrix}
-                    V_{1x}  \\
+                    V_{1x} \\
                     V_{1y} \\
                     V_{1z}
                 \end{bmatrix}
@@ -220,7 +261,7 @@
                     V_x \\
                     V_y \\
                     0
-                \end{bmatrix} 
+                \end{bmatrix}
                 + \left(\begin{bmatrix}
                     0 \\
                     0 \\
@@ -234,7 +275,7 @@
 
             \begin{equation*}
                 \begin{bmatrix}
-                    V_{1x}  \\
+                    V_{1x} \\
                     V_{1y} \\
                     V_{1z}
                 \end{bmatrix}
@@ -242,9 +283,9 @@
                     V_x \\
                     V_y \\
                     0
-                \end{bmatrix} 
+                \end{bmatrix}
                 + \begin{bmatrix}
-                    0 \\
+                    0              \\
                     l \cdot \omega \\
                     0
                 \end{bmatrix}
@@ -252,22 +293,22 @@
 
             \begin{equation} \label{eq:1}
                 \begin{bmatrix}
-                    V_{1x}  \\
+                    V_{1x} \\
                     V_{1y} \\
                     V_{1z}
                 \end{bmatrix}
                 = \begin{bmatrix}
-                    V_x \\
-                    V_y + l \cdot \omega\\
+                    V_x                  \\
+                    V_y + l \cdot \omega \\
                     0
-                \end{bmatrix} 
+                \end{bmatrix}
             \end{equation}
-            
+
             \textbf{For wheel 2 where $\alpha_1 = 120^\circ$}
 
             \begin{equation*}
                 \begin{bmatrix}
-                    V_{2x}  \\
+                    V_{2x} \\
                     V_{2y} \\
                     V_{2z}
                 \end{bmatrix}
@@ -275,7 +316,7 @@
                     V_x \\
                     V_y \\
                     0
-                \end{bmatrix} 
+                \end{bmatrix}
                 + \left(\begin{bmatrix}
                     0 \\
                     0 \\
@@ -289,7 +330,7 @@
 
             \begin{equation*}
                 \begin{bmatrix}
-                    V_{2x}  \\
+                    V_{2x} \\
                     V_{2y} \\
                     V_{2z}
                 \end{bmatrix}
@@ -297,32 +338,32 @@
                     V_x \\
                     V_y \\
                     0
-                \end{bmatrix} 
+                \end{bmatrix}
                 + \begin{bmatrix}
                     - \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega \\
-                    - \frac{1}{2} \cdot l \cdot \omega \\
+                    - \frac{1}{2} \cdot l \cdot \omega           \\
                     0
                 \end{bmatrix}
             \end{equation*}
 
             \begin{equation} \label{eq:2}
                 \begin{bmatrix}
-                    V_{2x}  \\
+                    V_{2x} \\
                     V_{2y} \\
                     V_{2z}
                 \end{bmatrix}
                 = \begin{bmatrix}
                     V_x - \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega \\
-                    V_y - \frac{1}{2} \cdot l \cdot \omega \\
+                    V_y - \frac{1}{2} \cdot l \cdot \omega           \\
                     0
-                \end{bmatrix} 
+                \end{bmatrix}
             \end{equation}
 
             \textbf{For wheel 3 where $\alpha_1 = - 120^\circ$}
 
             \begin{equation*}
                 \begin{bmatrix}
-                    V_{3x}  \\
+                    V_{3x} \\
                     V_{3y} \\
                     V_{3z}
                 \end{bmatrix}
@@ -330,7 +371,7 @@
                     V_x \\
                     V_y \\
                     0
-                \end{bmatrix} 
+                \end{bmatrix}
                 + \left(\begin{bmatrix}
                     0 \\
                     0 \\
@@ -344,7 +385,7 @@
 
             \begin{equation*}
                 \begin{bmatrix}
-                    V_{3x}  \\
+                    V_{3x} \\
                     V_{3y} \\
                     V_{3z}
                 \end{bmatrix}
@@ -352,48 +393,52 @@
                     V_x \\
                     V_y \\
                     0
-                \end{bmatrix} 
+                \end{bmatrix}
                 + \begin{bmatrix}
                     \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega \\
-                    - \frac{1}{2} \cdot l \cdot \omega \\
+                    - \frac{1}{2} \cdot l \cdot \omega         \\
                     0
                 \end{bmatrix}
             \end{equation*}
 
             \begin{equation} \label{eq:3}
                 \begin{bmatrix}
-                    V_{3x}  \\
+                    V_{3x} \\
                     V_{3y} \\
                     V_{3z}
                 \end{bmatrix}
                 = \begin{bmatrix}
                     V_x + \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega \\
-                    V_y - \frac{1}{2} \cdot l \cdot \omega \\
+                    V_y - \frac{1}{2} \cdot l \cdot \omega           \\
                     0
-                \end{bmatrix} 
+                \end{bmatrix}
             \end{equation}
 
-            Equations $\eqref{eq:1}$, $\eqref{eq:2}$, and $\eqref{eq:3}$ represent the velocity of contact point of the three wheels in the world frame. 
+            Equations $\eqref{eq:1}$, $\eqref{eq:2}$, and $\eqref{eq:3}$ represent the
+            velocity of contact point of the three wheels in the world frame.
 
-            The steering angles $\beta_i$, where i = 1, 2, 3 are determined by the following equations:
+            The steering angles $\beta_i$, where i = 1, 2, 3 are determined by the
+            following equations:
 
             For $\beta_1$:
 
             $\tan(\beta_1) = \dfrac{V_{1x}}{V_{1y}}$
 
-            $\beta_1 = \tan^{-1}(\dfrac{V_{1x}}{V_{1y}})$ 
+            $\beta_1 = \tan^{-1}(\dfrac{V_{1x}}{V_{1y}})$
 
-            substituting the subsequent values of $V_{1x}$ and $V_{1y}$ in the above equation:
+            substituting the subsequent values of $V_{1x}$ and $V_{1y}$ in the above
+            equation:
 
             $\beta_1 = \tan^{-1}(\dfrac{V_x}{V_y + l \cdot \omega})$
-            
+
             For $\beta_2$:
 
             $\tan(\beta_2 + 30^\circ) = \dfrac{V_{2y}}{V_{2x}}$
 
             $\beta_2 = \tan^{-1}(\dfrac{V_{2y}}{V_{2x}}) - 30^\circ$
 
-            substituting the subsequent values of $V_{2x}$ and $V_{2y}$ in the above equation:
+            substituting the subsequent values of $V_{2x}$ and $V_{2y}$ in the above
+            equation:
 
             $\beta_2 = \tan^{-1}(\dfrac{V_y - \frac{1}{2} \cdot l \cdot \omega}{V_x - \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega}) - 30^\circ$
 
@@ -403,7 +448,8 @@
 
             $\beta_3 = \tan^{-1}(\dfrac{V_{3y}}{V_{3x}}) + 30^\circ$
 
-            substituting the subsequent values of $V_{3x}$ and $V_{3y}$ in the above equation:
+            substituting the subsequent values of $V_{3x}$ and $V_{3y}$ in the above
+            equation:
 
             $\beta_3 = \tan^{-1}(\dfrac{V_y - \frac{1}{2} \cdot l \cdot \omega}{V_x + \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega}) + 30^\circ$
 
