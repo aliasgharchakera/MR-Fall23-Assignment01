@@ -71,7 +71,7 @@
     \begin{parts}
         \part Part a
         \begin{solution}
-            We first need the pose of the robot to get the robot to move in a clockwise position from its initial position and bring it back to its starting position. The pose of the Alphabot is as follows:
+            To determine the command that will make the robot move in a clockwise direction in a circle with a radius of 1 unit and return to its starting position, we first need to establish the robot's pose:
 
             \begin{align*}
                 \text{Pose} &= \begin{bmatrix}
@@ -81,40 +81,38 @@
                                 \end{bmatrix}
             \end{align*}
 
-            We want the robot to move in a radius of 1 unit, and the distance between the width of the robot wheels is 1 unit.
+            The robot's initial position is at coordinates (1, 1) in the world frame, with a heading or orientation \(\phi = 90^\circ\). The distance between the robot's wheels is 1 unit.
 
-            The equations for the right and left wheel velocities are given by:
+            We can calculate the right and left wheel velocities using the following equations:
 
             \[\text{Right Wheel Velocity:} \quad V_r = (R - \frac{L}{2}) \cdot \omega\]
             \[\text{Left Wheel Velocity:} \quad V_l = (R + \frac{L}{2}) \cdot \omega\]
 
             Where:
             \begin{itemize}
-                \item $L$ is the distance between the centers of the two wheels.
-                \item $R$ is the signed distance from the Instantaneous Center of Curvature (ICC) to the midpoint between the wheels.
-                \item $\omega$ is the rate of rotation.
+                \item \(L\) is the distance between the centers of the two wheels.
+                \item \(R\) is the signed distance from the Instantaneous Center of Curvature (ICC) to the midpoint between the wheels.
+                \item \(\omega\) is the rate of rotation.
             \end{itemize}
 
-            In this case, the radius of the circle, $R$, is 1 unit.
+            Given that the radius of the circle, \(R\), is 1 unit, we can calculate the wheel velocities as follows:
 
             \begin{align*}
                 V_r &= (1 - \frac{1}{2}) \cdot \omega = 0.5 \cdot \omega \\
                 V_l &= (1 + \frac{1}{2}) \cdot \omega = 1.5 \cdot \omega
             \end{align*}
 
+            Therefore, the command to make the robot move in this circular path can be represented as:
+
             \[(V_l, V_r, t) = (1.5\cdot\omega, 0.5\cdot\omega, t)\]
 
-            Assuming that we want the robot to make only one full clockwise rotation before getting back to the starting position, we can calculate the time duration (t) as follows:
+            Now, assuming that we want the robot to complete exactly one full clockwise rotation before returning to its starting position, we can calculate the time duration (\(t\)) required. To do this, we need to determine the distance the robot needs to travel, which is equal to the circumference of the circle with a radius of 1 unit, \(2\pi\) units.
 
-            First, we need to calculate the circumference of the circle with a radius of 1 unit, which is \(2\pi\) units. The robot will need to travel this distance.
+            Next, we calculate the linear velocity (\(V\)) of the robot as the average of the left and right wheel velocities:
 
-            Next, we can calculate the linear velocity of the robot, which is the average of the left and right wheel velocities:
+            \[V = \frac{V_l + V_r}{2} = \frac{0.5\omega + 1.5\omega}{2} = \frac{2\omega}{2} = \omega\]
 
-            \[V = \frac{V_l + V_r}{2}\]
-
-            We can find V as:
-
-            \[V = \frac{0.5\omega + 1.5\omega}{2} = \frac{2\omega}{2} = \omega\]
+            So, for the given scenario where the robot needs to make one full circle with a radius of 1 unit and return to its starting position, you can set \(\omega\) to \(2\pi\).
 
             Now, we can calculate the time duration (t) using the formula:
 
