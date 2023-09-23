@@ -36,28 +36,156 @@
     \begin{parts}
         \part Part a
         \begin{solution}
-            here
+            abc
         \end{solution}
-
         \part Part b
         \begin{solution}
-            The rotation matrix of $R^w_a$ rotates from the world frame to frame $\{a\}$ and $R^w_b$ rotates from the world frame to frame $\{b\}$.
-            
-            There exists two rotations for $R^w_a$. 
-            
-            Using the standard rotational matrices, we get;
+            For $R^w_a$, we have to rotate the $y_w$ axis along the $z_w$ axis by $-90^{\circ}$ and the $x_w$ axis along the $y_w$ axis by $-90^{\circ}$.
 
-            $R^w_a$ = 
+            \begin{equation*}
+                R^w_a = R^w_y(-90^{\circ})R^w_x(-90^{\circ})
+            \end{equation*}
 
+            \begin{equation*}
+                R^w_a = \begin{bmatrix}
+                    cos(-90^{\circ}) & -sin(-90^{\circ}) & 0 \\
+                    sin(-90^{\circ}) & cos(-90^{\circ})  & 0 \\
+                    0                & 0                 & 1
+                \end{bmatrix}
+                \begin{bmatrix}
+                    cos(-90^{\circ})  & 0 & sin(-90^{\circ}) \\
+                    0                 & 1 & 0                \\
+                    -sin(-90^{\circ}) & 0 & cos(-90^{\circ})
+                \end{bmatrix}
+            \end{equation*}
 
-        
+            \begin{equation*}
+                R^w_a = \begin{bmatrix}
+                    0  & 1 & 0 \\
+                    -1 & 0 & 0 \\
+                    0  & 0 & 1
+                \end{bmatrix}
+                \begin{bmatrix}
+                    0 & 0 & -1 \\
+                    0 & 1 & 0  \\
+                    1 & 0 & 0
+                \end{bmatrix}
+            \end{equation*}
+
+            \begin{equation*}
+                R^w_a = \begin{bmatrix}
+                    0 & 1 & 0 \\
+                    0 & 0 & 1 \\
+                    1 & 0 & 0
+                \end{bmatrix}
+            \end{equation*}
+
+            For $R^w_b$, we have to rotate the world frame along the $x_w$ axis by
+            $90^{\circ}$.
+
+            \begin{equation*}
+                R^w_b = R^w_x(90^{\circ})
+            \end{equation*}
+
+            \begin{equation*}
+                R^w_b = \begin{bmatrix}
+                    1 & 0               & 0                \\
+                    0 & cos(90^{\circ}) & -sin(90^{\circ}) \\
+                    0 & sin(90^{\circ}) & cos(90^{\circ})
+                \end{bmatrix}
+            \end{equation*}
+
+            \begin{equation*}
+                R^w_b = \begin{bmatrix}
+                    1 & 0 & 0  \\
+                    0 & 0 & -1 \\
+                    0 & 1 & 0
+                \end{bmatrix}
+            \end{equation*}
+        \end{solution}
+        \part Part c
+        \begin{solution}
+            We can leverage the fact that the rotation matrix is orthogonal and
+            that the inverse of an orthogonal matrix is its transpose.
+
+            \begin{equation*}
+                (R^w_b)^{-1} = (R^w_b)^T
+            \end{equation*}
+            \begin{equation*}
+                (R^w_b)^{-1} = \begin{bmatrix}
+                    1 & 0  & 0 \\
+                    0 & 0  & 1 \\
+                    0 & -1 & 0
+                \end{bmatrix}
+            \end{equation*}
+
+            In order to verify that $(R^w_b)^{-1} = (R^w_b)^T$, we can use the inverse to
+            transform a vector from the $b$ frame to the $w$ frame.
+
+            $x$-axis in $b$ frame is $[1, 0, 0]^T$.
+            \begin{equation*}
+                (R^w_b)^{-1} [1, 0, 0]^T = \begin{bmatrix}
+                    1 & 0  & 0 \\
+                    0 & 0  & 1 \\
+                    0 & -1 & 0
+                \end{bmatrix}
+                \begin{bmatrix}
+                    1 \\
+                    0 \\
+                    0
+                \end{bmatrix}
+                = \begin{bmatrix}
+                    1 \\
+                    0 \\
+                    0
+                \end{bmatrix}
+            \end{equation*}
+
+            $y$-axis in $b$ frame is $[0, 0, 1]^T$.
+            \begin{equation*}
+                (R^w_b)^{-1} [0, 0, 1]^T = \begin{bmatrix}
+                    1 & 0  & 0 \\
+                    0 & 0  & 1 \\
+                    0 & -1 & 0
+                \end{bmatrix}
+                \begin{bmatrix}
+                    0 \\
+                    0 \\
+                    1
+                \end{bmatrix}
+                = \begin{bmatrix}
+                    0 \\
+                    1 \\
+                    0
+                \end{bmatrix}
+            \end{equation*}
+
+            $z$-axis in $b$ frame is $[0, -1, 0]^T$.
+            \begin{equation*}
+                (R^w_b)^{-1} [0, -1, 0]^T = \begin{bmatrix}
+                    1 & 0  & 0 \\
+                    0 & 0  & 1 \\
+                    0 & -1 & 0
+                \end{bmatrix}
+                \begin{bmatrix}
+                    0  \\
+                    -1 \\
+                    0
+                \end{bmatrix}
+                = \begin{bmatrix}
+                    0 \\
+                    0 \\
+                    1
+                \end{bmatrix}
+            \end{equation*}
+
         \end{solution}
     \end{parts}
     \question Problem 2
     \begin{parts}
         \part Part a
         \begin{solution}
-            
+
         \end{solution}
     \end{parts}
     \question Problem 3
@@ -74,16 +202,19 @@
             To determine the command that will make the robot move in a clockwise direction in a circle with a radius of 1 unit and return to its starting position, we first need to establish the robot's pose:
 
             \begin{align*}
-                \text{Pose} &= \begin{bmatrix}
-                                    1 \\
-                                    1 \\
+                \text{Pose} & = \begin{bmatrix}
+                                    1        \\
+                                    1        \\
                                     90^\circ \\
                                 \end{bmatrix}
             \end{align*}
 
-            The robot's initial position is at coordinates (1, 1) in the world frame, with a heading or orientation \(\phi = 90^\circ\). The distance between the robot's wheels is 1 unit.
+            The robot's initial position is at coordinates (1, 1) in the world frame, with
+            a heading or orientation \(\phi = 90^\circ\). The distance between the robot's
+            wheels is 1 unit.
 
-            We can calculate the right and left wheel velocities using the following equations:
+            We can calculate the right and left wheel velocities using the following
+            equations:
 
             \[\text{Right Wheel Velocity:} \quad V_r = (R - \frac{L}{2}) \cdot \omega\]
             \[\text{Left Wheel Velocity:} \quad V_l = (R + \frac{L}{2}) \cdot \omega\]
@@ -95,45 +226,56 @@
                 \item \(\omega\) is the rate of rotation.
             \end{itemize}
 
-            Given that the radius of the circle, \(R\), is 1 unit, we can calculate the wheel velocities as follows:
+            Given that the radius of the circle, \(R\), is 1 unit, we can calculate the
+            wheel velocities as follows:
 
             \begin{align*}
-                V_r &= (1 - \frac{1}{2}) \cdot \omega = 0.5 \cdot \omega \\
-                V_l &= (1 + \frac{1}{2}) \cdot \omega = 1.5 \cdot \omega
+                V_r & = (1 - \frac{1}{2}) \cdot \omega = 0.5 \cdot \omega \\
+                V_l & = (1 + \frac{1}{2}) \cdot \omega = 1.5 \cdot \omega
             \end{align*}
 
-            Therefore, the command to make the robot move in this circular path can be represented as:
+            Therefore, the command to make the robot move in this circular path can be
+            represented as:
 
             \[(V_l, V_r, t) = (1.5\cdot\omega, 0.5\cdot\omega, t)\]
 
-            Now, assuming that we want the robot to complete exactly one full clockwise rotation before returning to its starting position, we can calculate the time duration (\(t\)) required. To do this, we need to determine the distance the robot needs to travel, which is equal to the circumference of the circle with a radius of 1 unit, \(2\pi\) units.
+            Now, assuming that we want the robot to complete exactly one full clockwise
+            rotation before returning to its starting position, we can calculate the time
+            duration (\(t\)) required. To do this, we need to determine the distance the
+            robot needs to travel, which is equal to the circumference of the circle with a
+            radius of 1 unit, \(2\pi\) units.
 
-            Next, we calculate the linear velocity (\(V\)) of the robot as the average of the left and right wheel velocities:
+            Next, we calculate the linear velocity (\(V\)) of the robot as the average of
+            the left and right wheel velocities:
 
             \[V = \frac{V_l + V_r}{2} = \frac{0.5\omega + 1.5\omega}{2} = \frac{2\omega}{2} = \omega\]
 
-            So, for the given scenario where the robot needs to make one full circle with a radius of 1 unit and return to its starting position, you can set \(\omega\) to \(2\pi\).
+            So, for the given scenario where the robot needs to make one full circle with a
+            radius of 1 unit and return to its starting position, you can set \(\omega\) to
+            \(2\pi\).
 
             Now, we can calculate the time duration (t) using the formula:
 
             \[t = \frac{\text{Distance}}{V} = \frac{2\pi}{\omega}\]
 
-            So, to make one full circle and return to the starting position, you can send the following command to the robot:
+            So, to make one full circle and return to the starting position, you can send
+            the following command to the robot:
 
             \[(V_l, V_r, t) = (1.5\cdot\omega, 0.5\cdot\omega, \frac{2\pi}{\omega})\]
 
-            Assuming \(\omega\) to be 1 radian, we can calculate the values of \((V_l, V_r, t)\) as follows:
+            Assuming \(\omega\) to be 1 radian, we can calculate the values of \((V_l, V_r,
+            t)\) as follows:
 
             \begin{align*}
-                V_l &= 1.5 \cdot \omega = 1.5 \cdot 1 \, \text{rad/s} = 1.5 \, \text{rad/s} \\
-                V_r &= 0.5 \cdot \omega = 0.5 \cdot 1 \, \text{rad/s} = 0.5 \, \text{rad/s} \\
-                t &= \frac{2\pi}{\omega} = \frac{2\pi}{1 \, \text{rad/s}} = 2\pi \, \text{s}
+                V_l & = 1.5 \cdot \omega = 1.5 \cdot 1 \, \text{rad/s} = 1.5 \, \text{rad/s}    \\
+                V_r & = 0.5 \cdot \omega = 0.5 \cdot 1 \, \text{rad/s} = 0.5 \, \text{rad/s}    \\
+                t   & = \frac{2\pi}{\omega} = \frac{2\pi}{1 \, \text{rad/s}} = 2\pi \, \text{s}
             \end{align*}
 
             So, assuming \(\omega\) to be 1 radian, we have:
 
             \[
-            (V_l, V_r, t) = (1.5 \, \text{rad/s}, 0.5 \, \text{rad/s}, 2\pi \, \text{s})
+                (V_l, V_r, t) = (1.5 \, \text{rad/s}, 0.5 \, \text{rad/s}, 2\pi \, \text{s})
             \]
         \end{solution}
     \end{parts}
