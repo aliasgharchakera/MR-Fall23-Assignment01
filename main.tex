@@ -188,13 +188,197 @@
 
         \end{solution}
     \end{parts}
+
     \question Problem 3
     \begin{parts}
         \part Part a
         \begin{solution}
-            abc
+
+            The general equation of a steerable wheel is as followed:
+
+            \begin{align*}
+                v^w_c = v^w_v + ({\omega}^v_s \times r^s_c) + ({\omega}^w_v \times r^v_c)
+            \end{align*}
+
+            Since there is no wheel offset $r^s_c$ will be 0. The equation will be simplified as followed:
+
+            \begin{align*}
+                v^w_c = v^w_v + ({\omega}^w_v \times r^v_c)
+            \end{align*}
+
+            The distance from the wheel to the center of the robot will be considered as l. 
+
+            For wheel 1 where $\alpha_1 = 0^\circ$
+
+            \begin{equation*}
+                \begin{bmatrix}
+                    V_{1x}  \\
+                    V_{1y} \\
+                    V_{1z}
+                \end{bmatrix}
+                = \begin{bmatrix}
+                    V_x \\
+                    V_y \\
+                    0
+                \end{bmatrix} 
+                + \left(\begin{bmatrix}
+                    0 \\
+                    0 \\
+                    \omega
+                \end{bmatrix} \times \begin{bmatrix}
+                    \cos(0) \cdot l \\
+                    \sin(0) \cdot l \\
+                    0
+                \end{bmatrix}\right)
+            \end{equation*}
+
+            \begin{equation*}
+                \begin{bmatrix}
+                    V_{1x}  \\
+                    V_{1y} \\
+                    V_{1z}
+                \end{bmatrix}
+                = \begin{bmatrix}
+                    V_x \\
+                    V_y \\
+                    0
+                \end{bmatrix} 
+                + \begin{bmatrix}
+                    0 \\
+                    l \cdot \omega \\
+                    0
+                \end{bmatrix}
+            \end{equation*}
+
+            \begin{equation} \label{eq:1}
+                \begin{bmatrix}
+                    V_{1x}  \\
+                    V_{1y} \\
+                    V_{1z}
+                \end{bmatrix}
+                = \begin{bmatrix}
+                    V_x \\
+                    V_y + l \cdot \omega\\
+                    0
+                \end{bmatrix} 
+            \end{equation}
+            
+
+            For wheel 2 where $\alpha_1 = 120^\circ$
+
+            \begin{equation*}
+                \begin{bmatrix}
+                    V_{2x}  \\
+                    V_{2y} \\
+                    V_{2z}
+                \end{bmatrix}
+                = \begin{bmatrix}
+                    V_x \\
+                    V_y \\
+                    0
+                \end{bmatrix} 
+                + \left(\begin{bmatrix}
+                    0 \\
+                    0 \\
+                    \omega
+                \end{bmatrix} \times \begin{bmatrix}
+                    \cos(120) \cdot l \\
+                    \sin(120) \cdot l \\
+                    0
+                \end{bmatrix}\right)
+            \end{equation*}
+
+            \begin{equation*}
+                \begin{bmatrix}
+                    V_{2x}  \\
+                    V_{2y} \\
+                    V_{2z}
+                \end{bmatrix}
+                = \begin{bmatrix}
+                    V_x \\
+                    V_y \\
+                    0
+                \end{bmatrix} 
+                + \begin{bmatrix}
+                    - \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega \\
+                    - \frac{1}{2} \cdot l \cdot \omega \\
+                    0
+                \end{bmatrix}
+            \end{equation*}
+
+            \begin{equation} \label{eq:2}
+                \begin{bmatrix}
+                    V_{2x}  \\
+                    V_{2y} \\
+                    V_{2z}
+                \end{bmatrix}
+                = \begin{bmatrix}
+                    V_x - \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega \\
+                    V_y - \frac{1}{2} \cdot l \cdot \omega \\
+                    0
+                \end{bmatrix} 
+            \end{equation}
+
+            For wheel 3 where $\alpha_1 = - 120^\circ$
+
+            \begin{equation*}
+                \begin{bmatrix}
+                    V_{3x}  \\
+                    V_{3y} \\
+                    V_{3z}
+                \end{bmatrix}
+                = \begin{bmatrix}
+                    V_x \\
+                    V_y \\
+                    0
+                \end{bmatrix} 
+                + \left(\begin{bmatrix}
+                    0 \\
+                    0 \\
+                    \omega
+                \end{bmatrix} \times \begin{bmatrix}
+                    \cos(- 120) \cdot l \\
+                    \sin(- 120) \cdot l \\
+                    0
+                \end{bmatrix}\right)
+            \end{equation*}
+
+            \begin{equation*}
+                \begin{bmatrix}
+                    V_{3x}  \\
+                    V_{3y} \\
+                    V_{3z}
+                \end{bmatrix}
+                = \begin{bmatrix}
+                    V_x \\
+                    V_y \\
+                    0
+                \end{bmatrix} 
+                + \begin{bmatrix}
+                    \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega \\
+                    - \frac{1}{2} \cdot l \cdot \omega \\
+                    0
+                \end{bmatrix}
+            \end{equation*}
+
+            \begin{equation} \label{eq:3}
+                \begin{bmatrix}
+                    V_{3x}  \\
+                    V_{3y} \\
+                    V_{3z}
+                \end{bmatrix}
+                = \begin{bmatrix}
+                    V_x + \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega \\
+                    V_y - \frac{1}{2} \cdot l \cdot \omega \\
+                    0
+                \end{bmatrix} 
+            \end{equation}
+
+            Equations $\eqref{eq:1}$, $\eqref{eq:2}$, and $\eqref{eq:3}$ represent the velocity of contact point of the three wheels in the world frame. 
+
         \end{solution}
     \end{parts}
+
     \question Problem 4
     \begin{parts}
         \part Part a
