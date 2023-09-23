@@ -5,6 +5,7 @@
 \usepackage{geometry}
 \usepackage{venndiagram}
 \usepackage{graphics}
+\usepackage{siunitx}
 
 % Header and footer.
 \pagestyle{headandfoot}
@@ -35,14 +36,28 @@
     \begin{parts}
         \part Part a
         \begin{solution}
-            abc
+            here
+        \end{solution}
+
+        \part Part b
+        \begin{solution}
+            The rotation matrix of $R^w_a$ rotates from the world frame to frame $\{a\}$ and $R^w_b$ rotates from the world frame to frame $\{b\}$.
+            
+            There exists two rotations for $R^w_a$. 
+            
+            Using the standard rotational matrices, we get;
+
+            $R^w_a$ = 
+
+
+        
         \end{solution}
     \end{parts}
     \question Problem 2
     \begin{parts}
         \part Part a
         \begin{solution}
-            abc
+            
         \end{solution}
     \end{parts}
     \question Problem 3
@@ -56,7 +71,59 @@
     \begin{parts}
         \part Part a
         \begin{solution}
-            abc
+            We first need the pose of the robot to get the robot to move in a clockwise position from its initial position and bring it back to its starting position. The pose of the Alphabot is as follows:
+
+            \begin{align*}
+                \text{Pose} &= \begin{bmatrix}
+                                    1 \\
+                                    1 \\
+                                    90^\circ \\
+                                \end{bmatrix}
+            \end{align*}
+
+            We want the robot to move in a radius of 1 unit, and the distance between the width of the robot wheels is 1 unit.
+
+            The equations for the right and left wheel velocities are given by:
+
+            \[\text{Right Wheel Velocity:} \quad V_r = (R - \frac{L}{2}) \cdot \omega\]
+            \[\text{Left Wheel Velocity:} \quad V_l = (R + \frac{L}{2}) \cdot \omega\]
+
+            Where:
+            \begin{itemize}
+                \item $L$ is the distance between the centers of the two wheels.
+                \item $R$ is the signed distance from the Instantaneous Center of Curvature (ICC) to the midpoint between the wheels.
+                \item $\omega$ is the rate of rotation.
+            \end{itemize}
+
+            In this case, the radius of the circle, $R$, is 1 unit.
+
+            \begin{align*}
+                V_r &= (1 - \frac{1}{2}) \cdot \omega = 0.5 \cdot \omega \\
+                V_l &= (1 + \frac{1}{2}) \cdot \omega = 1.5 \cdot \omega
+            \end{align*}
+
+            \[(V_l, V_r, t) = (1.5\cdot\omega, 0.5\cdot\omega, t)\]
+
+            Assuming that we want the robot to make only one full clockwise rotation before getting back to the starting position, we can calculate the time duration (t) as follows:
+
+            First, we need to calculate the circumference of the circle with a radius of 1 unit, which is \(2\pi\) units. The robot will need to travel this distance.
+
+            Next, we can calculate the linear velocity of the robot, which is the average of the left and right wheel velocities:
+
+            \[V = \frac{V_l + V_r}{2}\]
+
+            We can find V as:
+
+            \[V = \frac{0.5\omega + 1.5\omega}{2} = \frac{2\omega}{2} = \omega\]
+
+            Now, we can calculate the time duration (t) using the formula:
+
+            \[t = \frac{\text{Distance}}{V} = \frac{2\pi}{\omega}\]
+
+            So, to make one full circle and return to the starting position, you can send the following command to the robot:
+
+            \[(V_l, V_r, t) = (1.5\cdot\omega, 0.5\cdot\omega, \frac{2\pi}{\omega})\]
+
         \end{solution}
     \end{parts}
     \question Problem 5
