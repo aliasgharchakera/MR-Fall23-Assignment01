@@ -206,9 +206,9 @@
                 v^w_c = v^w_v + ({\omega}^w_v \times r^v_c)
             \end{align*}
 
-            The distance from the wheel to the center of the robot will be considered as l. 
+            The distance from the wheel to the center of the robot will be considered as l. $V_z$ will always be 0 because the robot is constrained to move in x-y plane due to the robot always being on the plane.  
 
-            For wheel 1 where $\alpha_1 = 0^\circ$
+            \textbf{For wheel 1 where $\alpha_1 = 0^\circ$}
 
             \begin{equation*}
                 \begin{bmatrix}
@@ -263,8 +263,7 @@
                 \end{bmatrix} 
             \end{equation}
             
-
-            For wheel 2 where $\alpha_1 = 120^\circ$
+            \textbf{For wheel 2 where $\alpha_1 = 120^\circ$}
 
             \begin{equation*}
                 \begin{bmatrix}
@@ -319,7 +318,7 @@
                 \end{bmatrix} 
             \end{equation}
 
-            For wheel 3 where $\alpha_1 = - 120^\circ$
+            \textbf{For wheel 3 where $\alpha_1 = - 120^\circ$}
 
             \begin{equation*}
                 \begin{bmatrix}
@@ -375,6 +374,38 @@
             \end{equation}
 
             Equations $\eqref{eq:1}$, $\eqref{eq:2}$, and $\eqref{eq:3}$ represent the velocity of contact point of the three wheels in the world frame. 
+
+            The steering angles $\beta_i$, where i = 1, 2, 3 are determined by the following equations:
+
+            For $\beta_1$:
+
+            $\tan(\beta_1) = \dfrac{V_{1x}}{V_{1y}}$
+
+            $\beta_1 = \tan^{-1}(\dfrac{V_{1x}}{V_{1y}})$ 
+
+            substituting the subsequent values of $V_{1x}$ and $V_{1y}$ in the above equation:
+
+            $\beta_1 = \tan^{-1}(\dfrac{V_x}{V_y + l \cdot \omega})$
+            
+            For $\beta_2$:
+
+            $\tan(\beta_2 + 30^\circ) = \dfrac{V_{2y}}{V_{2x}}$
+
+            $\beta_2 = \tan^{-1}(\dfrac{V_{2y}}{V_{2x}}) - 30^\circ$
+
+            substituting the subsequent values of $V_{2x}$ and $V_{2y}$ in the above equation:
+
+            $\beta_2 = \tan^{-1}(\dfrac{V_y - \frac{1}{2} \cdot l \cdot \omega}{V_x - \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega}) - 30^\circ$
+
+            For $\beta_3$:
+
+            $\tan(\beta_3 - 30^\circ) = \dfrac{V_{3y}}{V_{3x}}$
+
+            $\beta_3 = \tan^{-1}(\dfrac{V_{3y}}{V_{3x}}) + 30^\circ$
+
+            substituting the subsequent values of $V_{3x}$ and $V_{3y}$ in the above equation:
+
+            $\beta_3 = \tan^{-1}(\dfrac{V_y - \frac{1}{2} \cdot l \cdot \omega}{V_x + \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega}) + 30^\circ$
 
         \end{solution}
     \end{parts}
