@@ -38,8 +38,8 @@
         \part Part a
         \begin{solution}
 
-                \centering
-                \includegraphics[width=0.3\textwidth]{images/1a.jpg}
+            \centering
+            \includegraphics[width=0.3\textwidth]{images/1a.jpg}
         \end{solution}
         \part Part b
         \begin{solution}
@@ -319,16 +319,40 @@
         \end{solution}
     \end{parts}
     \question Problem 2
-    \begin{parts}
-        \part Part a
-        \begin{solution}
+    \begin{solution}
+        We have,
+        \begin{equation*}
+            r^i_s = r^i_t + r^t_v + r^v_s
+        \end{equation*}
+        We can differentiate both sides with respect to time with reference to the $i$ frame to get the velocity,
+        \begin{equation*}
+            v^i_s  =  \dfrac{d}{dt}\Big|_i r^i_t + \frac{d}{dt}\Big|_i r^t_v +\frac{d}{dt}\Big|_i r^v_s
+        \end{equation*}
+        Using the Coriolis Equation: $\frac{du}{dt}\big|_f  = \frac{du}{dt}\big|_m  + \omega \times u$, we get,
+        \begin{equation*}
+            v^i_s  = v^i_t +v^t_v + \omega^i_t \times r^t_v + v^v_s + \omega^i_v \times r^v_s
+        \end{equation*}
+        To get the acceleration, we can differentiate both sides with respect to time with reference to the $i$ frame,
+        \begin{equation*}
+            a^i_s  =  \dfrac{d}{dt}\Big|_i v^i_t + \frac{d}{dt}\Big|_i v^t_v +\frac{d}{dt}\Big|_i \omega^i_t \times r^t_v +\frac{d}{dt}\Big|_i v^v_s + \frac{d}{dt}\Big|_i \omega^i_v \times r^v_s
+        \end{equation*}
+        Using the Coriolis Equation again, we get,
+        \begin{equation*}
+            a^i_s  =  a^i_t + a^t_v + \omega^i_t \times v^t_v + \frac{d}{dt}\Big|_i \omega^i_t \times r^t_v + \frac{d}{dt}\Big|_i r^t_v \times \omega^i_t + a^v_s + \omega^i_v \times v^v_s + \frac{d}{dt}\Big|_i \omega^i_v \times r^v_s + \frac{d}{dt}\Big|_i r^v_s \times \omega^i_v
+        \end{equation*}
+        Using the fact that the Earth moves with a constant velocity, its acceleration is 0. Therefore, $a^i_t = \frac{d}{dt}\Big|_i \omega^i_t = 0$.
 
-        \end{solution}
-    \end{parts}
+        Similarly, the sensor is fixed to the robot, so its velocity and acceleration
+        wrt the robot is 0. Therefore, $v^v_s = a^v_s = 0$.
+
+        Substituting these values in the equation for $a^i_s$, we get,
+        \begin{equation*}
+            a^i_s  =  a^t_v + \omega^i_t \times v^t_v + (v^t_v + \omega^i_t \times r^t_v) \times \omega^i_t + \frac{d}{dt}\Big|_i \omega^i_v \times r^v_s + (\omega^i_v \times r^v_s) \times \omega^i_v
+        \end{equation*}
+        Where $\frac{d}{dt}\Big|_i \omega^i_v$ is the angular acceleration of the robot wrt to the center of the Earth. We can write this as $\alpha^i_v$.
+    \end{solution}
 
     \question Problem 3
-    \begin{parts}
-        \part Part a
         \begin{solution}
 
             The general equation of a steerable wheel is as followed:
@@ -553,7 +577,6 @@
             $\beta_3 = \tan^{-1}(\dfrac{V_y - \frac{1}{2} \cdot l \cdot \omega}{V_x + \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega}) + 30^\circ$
 
         \end{solution}
-    \end{parts}
 
     \question Problem 4
     \begin{parts}
@@ -637,6 +660,10 @@
             \[
                 (V_l, V_r, t) = (1.5 \, \text{rad/s}, 0.5 \, \text{rad/s}, 2\pi \, \text{s})
             \]
+        \end{solution}
+        \part Part b
+        \begin{solution}
+            
         \end{solution}
     \end{parts}
     \question Problem 5
