@@ -708,14 +708,28 @@
                 V_r & = - 0.5 \cdot \omega = - 0.5 \cdot 1  = - 0.5                                               \\
                 t   & = \frac{\frac{1}{4} \pi}{\omega} = \frac{\frac{1}{4} \pi}{1 } = \frac{1}{4} \pi \, \text{s}
             \end{align*}
-            We can send the following command to the robot:
+            To rotate the robot about its center we can send the following command to the robot:
             \begin{align*}
                 (V_l, V_r, t) & = (0.5, - 0.5, \frac{1}{4} \pi)
             \end{align*}
         \end{solution}
         \part Part c
         \begin{solution}
+            The shortest path between two points is a straight line. So, to move the robot from the point (1, 1) to the point (3, 1),
+            we could rotate the robot by 90 degrees and then move it forward by 2 units and then rotate it by -90 degrees. The commands for this path are as follows:
             
+            Rotating the robot by 90 degrees:
+            \begin{align*}
+                (V_l, V_r, t) & = (0.5, -0.5, \frac{1}{8} \pi)
+            \end{align*}
+            Moving the robot forward by 2 units:
+            \begin{align*}
+                (V_l, V_r, t) & = (1, 1, 2)
+            \end{align*}
+            Rotating the robot by -90 degrees:
+            \begin{align*}
+                (V_l, V_r, t) & = (-0.5, 0.5, \frac{1}{8} \pi)
+            \end{align*}
         \end{solution}
     \end{parts}
     \question Problem 5
