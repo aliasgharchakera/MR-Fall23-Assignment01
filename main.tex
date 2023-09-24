@@ -353,230 +353,230 @@
     \end{solution}
 
     \question Problem 3
-        \begin{solution}
+    \begin{solution}
 
-            The general equation of a steerable wheel is as followed:
+        The general equation of a steerable wheel is as followed:
 
-            \begin{align*}
-                v^w_c = v^w_v + ({\omega}^v_s \times r^s_c) + ({\omega}^w_v \times r^v_c)
-            \end{align*}
+        \begin{align*}
+            v^w_c = v^w_v + ({\omega}^v_s \times r^s_c) + ({\omega}^w_v \times r^v_c)
+        \end{align*}
 
-            Since there is no wheel offset $r^s_c$ will be 0. The equation will be
-            simplified as followed:
+        Since there is no wheel offset $r^s_c$ will be 0. The equation will be
+        simplified as followed:
 
-            \begin{align*}
-                v^w_c = v^w_v + ({\omega}^w_v \times r^v_c)
-            \end{align*}
+        \begin{align*}
+            v^w_c = v^w_v + ({\omega}^w_v \times r^v_c)
+        \end{align*}
 
-            The distance from the wheel to the center of the robot will be considered as l.
-            $V_z$ will always be 0 because the robot is constrained to move in x-y plane
-            due to the robot always being on the plane.
+        The distance from the wheel to the center of the robot will be considered as l.
+        $V_z$ will always be 0 because the robot is constrained to move in x-y plane
+        due to the robot always being on the plane.
 
-            \textbf{For wheel 1 where $\alpha_1 = 0^\circ$}
+        \textbf{For wheel 1 where $\alpha_1 = 0^\circ$}
 
-            \begin{equation*}
-                \begin{bmatrix}
-                    V_{1x} \\
-                    V_{1y} \\
-                    V_{1z}
-                \end{bmatrix}
-                = \begin{bmatrix}
-                    V_x \\
-                    V_y \\
-                    0
-                \end{bmatrix}
-                + \left(\begin{bmatrix}
-                    0 \\
-                    0 \\
-                    \omega
-                \end{bmatrix} \times \begin{bmatrix}
-                    \cos(0) \cdot l \\
-                    \sin(0) \cdot l \\
-                    0
-                \end{bmatrix}\right)
-            \end{equation*}
+        \begin{equation*}
+            \begin{bmatrix}
+                V_{1x} \\
+                V_{1y} \\
+                V_{1z}
+            \end{bmatrix}
+            = \begin{bmatrix}
+                V_x \\
+                V_y \\
+                0
+            \end{bmatrix}
+            + \left(\begin{bmatrix}
+                0 \\
+                0 \\
+                \omega
+            \end{bmatrix} \times \begin{bmatrix}
+                \cos(0) \cdot l \\
+                \sin(0) \cdot l \\
+                0
+            \end{bmatrix}\right)
+        \end{equation*}
 
-            \begin{equation*}
-                \begin{bmatrix}
-                    V_{1x} \\
-                    V_{1y} \\
-                    V_{1z}
-                \end{bmatrix}
-                = \begin{bmatrix}
-                    V_x \\
-                    V_y \\
-                    0
-                \end{bmatrix}
-                + \begin{bmatrix}
-                    0              \\
-                    l \cdot \omega \\
-                    0
-                \end{bmatrix}
-            \end{equation*}
+        \begin{equation*}
+            \begin{bmatrix}
+                V_{1x} \\
+                V_{1y} \\
+                V_{1z}
+            \end{bmatrix}
+            = \begin{bmatrix}
+                V_x \\
+                V_y \\
+                0
+            \end{bmatrix}
+            + \begin{bmatrix}
+                0              \\
+                l \cdot \omega \\
+                0
+            \end{bmatrix}
+        \end{equation*}
 
-            \begin{equation} \label{eq:1}
-                \begin{bmatrix}
-                    V_{1x} \\
-                    V_{1y} \\
-                    V_{1z}
-                \end{bmatrix}
-                = \begin{bmatrix}
-                    V_x                  \\
-                    V_y + l \cdot \omega \\
-                    0
-                \end{bmatrix}
-            \end{equation}
+        \begin{equation} \label{eq:1}
+            \begin{bmatrix}
+                V_{1x} \\
+                V_{1y} \\
+                V_{1z}
+            \end{bmatrix}
+            = \begin{bmatrix}
+                V_x                  \\
+                V_y + l \cdot \omega \\
+                0
+            \end{bmatrix}
+        \end{equation}
 
-            \textbf{For wheel 2 where $\alpha_1 = 120^\circ$}
+        \textbf{For wheel 2 where $\alpha_1 = 120^\circ$}
 
-            \begin{equation*}
-                \begin{bmatrix}
-                    V_{2x} \\
-                    V_{2y} \\
-                    V_{2z}
-                \end{bmatrix}
-                = \begin{bmatrix}
-                    V_x \\
-                    V_y \\
-                    0
-                \end{bmatrix}
-                + \left(\begin{bmatrix}
-                    0 \\
-                    0 \\
-                    \omega
-                \end{bmatrix} \times \begin{bmatrix}
-                    \cos(120) \cdot l \\
-                    \sin(120) \cdot l \\
-                    0
-                \end{bmatrix}\right)
-            \end{equation*}
+        \begin{equation*}
+            \begin{bmatrix}
+                V_{2x} \\
+                V_{2y} \\
+                V_{2z}
+            \end{bmatrix}
+            = \begin{bmatrix}
+                V_x \\
+                V_y \\
+                0
+            \end{bmatrix}
+            + \left(\begin{bmatrix}
+                0 \\
+                0 \\
+                \omega
+            \end{bmatrix} \times \begin{bmatrix}
+                \cos(120) \cdot l \\
+                \sin(120) \cdot l \\
+                0
+            \end{bmatrix}\right)
+        \end{equation*}
 
-            \begin{equation*}
-                \begin{bmatrix}
-                    V_{2x} \\
-                    V_{2y} \\
-                    V_{2z}
-                \end{bmatrix}
-                = \begin{bmatrix}
-                    V_x \\
-                    V_y \\
-                    0
-                \end{bmatrix}
-                + \begin{bmatrix}
-                    - \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega \\
-                    - \frac{1}{2} \cdot l \cdot \omega           \\
-                    0
-                \end{bmatrix}
-            \end{equation*}
+        \begin{equation*}
+            \begin{bmatrix}
+                V_{2x} \\
+                V_{2y} \\
+                V_{2z}
+            \end{bmatrix}
+            = \begin{bmatrix}
+                V_x \\
+                V_y \\
+                0
+            \end{bmatrix}
+            + \begin{bmatrix}
+                - \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega \\
+                - \frac{1}{2} \cdot l \cdot \omega           \\
+                0
+            \end{bmatrix}
+        \end{equation*}
 
-            \begin{equation} \label{eq:2}
-                \begin{bmatrix}
-                    V_{2x} \\
-                    V_{2y} \\
-                    V_{2z}
-                \end{bmatrix}
-                = \begin{bmatrix}
-                    V_x - \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega \\
-                    V_y - \frac{1}{2} \cdot l \cdot \omega           \\
-                    0
-                \end{bmatrix}
-            \end{equation}
+        \begin{equation} \label{eq:2}
+            \begin{bmatrix}
+                V_{2x} \\
+                V_{2y} \\
+                V_{2z}
+            \end{bmatrix}
+            = \begin{bmatrix}
+                V_x - \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega \\
+                V_y - \frac{1}{2} \cdot l \cdot \omega           \\
+                0
+            \end{bmatrix}
+        \end{equation}
 
-            \textbf{For wheel 3 where $\alpha_1 = - 120^\circ$}
+        \textbf{For wheel 3 where $\alpha_1 = - 120^\circ$}
 
-            \begin{equation*}
-                \begin{bmatrix}
-                    V_{3x} \\
-                    V_{3y} \\
-                    V_{3z}
-                \end{bmatrix}
-                = \begin{bmatrix}
-                    V_x \\
-                    V_y \\
-                    0
-                \end{bmatrix}
-                + \left(\begin{bmatrix}
-                    0 \\
-                    0 \\
-                    \omega
-                \end{bmatrix} \times \begin{bmatrix}
-                    \cos(- 120) \cdot l \\
-                    \sin(- 120) \cdot l \\
-                    0
-                \end{bmatrix}\right)
-            \end{equation*}
+        \begin{equation*}
+            \begin{bmatrix}
+                V_{3x} \\
+                V_{3y} \\
+                V_{3z}
+            \end{bmatrix}
+            = \begin{bmatrix}
+                V_x \\
+                V_y \\
+                0
+            \end{bmatrix}
+            + \left(\begin{bmatrix}
+                0 \\
+                0 \\
+                \omega
+            \end{bmatrix} \times \begin{bmatrix}
+                \cos(- 120) \cdot l \\
+                \sin(- 120) \cdot l \\
+                0
+            \end{bmatrix}\right)
+        \end{equation*}
 
-            \begin{equation*}
-                \begin{bmatrix}
-                    V_{3x} \\
-                    V_{3y} \\
-                    V_{3z}
-                \end{bmatrix}
-                = \begin{bmatrix}
-                    V_x \\
-                    V_y \\
-                    0
-                \end{bmatrix}
-                + \begin{bmatrix}
-                    \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega \\
-                    - \frac{1}{2} \cdot l \cdot \omega         \\
-                    0
-                \end{bmatrix}
-            \end{equation*}
+        \begin{equation*}
+            \begin{bmatrix}
+                V_{3x} \\
+                V_{3y} \\
+                V_{3z}
+            \end{bmatrix}
+            = \begin{bmatrix}
+                V_x \\
+                V_y \\
+                0
+            \end{bmatrix}
+            + \begin{bmatrix}
+                \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega \\
+                - \frac{1}{2} \cdot l \cdot \omega         \\
+                0
+            \end{bmatrix}
+        \end{equation*}
 
-            \begin{equation} \label{eq:3}
-                \begin{bmatrix}
-                    V_{3x} \\
-                    V_{3y} \\
-                    V_{3z}
-                \end{bmatrix}
-                = \begin{bmatrix}
-                    V_x + \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega \\
-                    V_y - \frac{1}{2} \cdot l \cdot \omega           \\
-                    0
-                \end{bmatrix}
-            \end{equation}
+        \begin{equation} \label{eq:3}
+            \begin{bmatrix}
+                V_{3x} \\
+                V_{3y} \\
+                V_{3z}
+            \end{bmatrix}
+            = \begin{bmatrix}
+                V_x + \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega \\
+                V_y - \frac{1}{2} \cdot l \cdot \omega           \\
+                0
+            \end{bmatrix}
+        \end{equation}
 
-            Equations $\eqref{eq:1}$, $\eqref{eq:2}$, and $\eqref{eq:3}$ represent the
-            velocity of contact point of the three wheels in the world frame.
+        Equations $\eqref{eq:1}$, $\eqref{eq:2}$, and $\eqref{eq:3}$ represent the
+        velocity of contact point of the three wheels in the world frame.
 
-            The steering angles $\beta_i$, where i = 1, 2, 3 are determined by the
-            following equations:
+        The steering angles $\beta_i$, where i = 1, 2, 3 are determined by the
+        following equations:
 
-            For $\beta_1$:
+        For $\beta_1$:
 
-            $\tan(\beta_1) = \dfrac{V_{1x}}{V_{1y}}$
+        $\tan(\beta_1) = \dfrac{V_{1x}}{V_{1y}}$
 
-            $\beta_1 = \tan^{-1}(\dfrac{V_{1x}}{V_{1y}})$
+        $\beta_1 = \tan^{-1}(\dfrac{V_{1x}}{V_{1y}})$
 
-            substituting the subsequent values of $V_{1x}$ and $V_{1y}$ in the above
-            equation:
+        substituting the subsequent values of $V_{1x}$ and $V_{1y}$ in the above
+        equation:
 
-            $\beta_1 = \tan^{-1}(\dfrac{V_x}{V_y + l \cdot \omega})$
+        $\beta_1 = \tan^{-1}(\dfrac{V_x}{V_y + l \cdot \omega})$
 
-            For $\beta_2$:
+        For $\beta_2$:
 
-            $\tan(\beta_2 + 30^\circ) = \dfrac{V_{2y}}{V_{2x}}$
+        $\tan(\beta_2 + 30^\circ) = \dfrac{V_{2y}}{V_{2x}}$
 
-            $\beta_2 = \tan^{-1}(\dfrac{V_{2y}}{V_{2x}}) - 30^\circ$
+        $\beta_2 = \tan^{-1}(\dfrac{V_{2y}}{V_{2x}}) - 30^\circ$
 
-            substituting the subsequent values of $V_{2x}$ and $V_{2y}$ in the above
-            equation:
+        substituting the subsequent values of $V_{2x}$ and $V_{2y}$ in the above
+        equation:
 
-            $\beta_2 = \tan^{-1}(\dfrac{V_y - \frac{1}{2} \cdot l \cdot \omega}{V_x - \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega}) - 30^\circ$
+        $\beta_2 = \tan^{-1}(\dfrac{V_y - \frac{1}{2} \cdot l \cdot \omega}{V_x - \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega}) - 30^\circ$
 
-            For $\beta_3$:
+        For $\beta_3$:
 
-            $\tan(\beta_3 - 30^\circ) = \dfrac{V_{3y}}{V_{3x}}$
+        $\tan(\beta_3 - 30^\circ) = \dfrac{V_{3y}}{V_{3x}}$
 
-            $\beta_3 = \tan^{-1}(\dfrac{V_{3y}}{V_{3x}}) + 30^\circ$
+        $\beta_3 = \tan^{-1}(\dfrac{V_{3y}}{V_{3x}}) + 30^\circ$
 
-            substituting the subsequent values of $V_{3x}$ and $V_{3y}$ in the above
-            equation:
+        substituting the subsequent values of $V_{3x}$ and $V_{3y}$ in the above
+        equation:
 
-            $\beta_3 = \tan^{-1}(\dfrac{V_y - \frac{1}{2} \cdot l \cdot \omega}{V_x + \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega}) + 30^\circ$
+        $\beta_3 = \tan^{-1}(\dfrac{V_y - \frac{1}{2} \cdot l \cdot \omega}{V_x + \frac{\sqrt[2]{3}}{2} \cdot l \cdot \omega}) + 30^\circ$
 
-        \end{solution}
+    \end{solution}
 
     \question Problem 4
     \begin{parts}
@@ -628,13 +628,13 @@
             robot needs to travel, which is equal to the circumference of the circle with a
             radius of 1 unit, \(2\pi\) units.
 
-            Next, we calculate the linear velocity (\(V\)) of the robot as the average of
+            Next, we calculate the velocity (\(V\)) of the robot as the average of
             the left and right wheel velocities:
 
             \[V = \frac{V_l + V_r}{2} = \frac{0.5\omega + 1.5\omega}{2} = \frac{2\omega}{2} = \omega\]
 
             So, for the given scenario where the robot needs to make one full circle with a
-            radius of 1 unit and return to its starting position, you can set \(\omega\) to
+            radius of 1 unit and return to its starting position, you can set the distance to
             \(2\pi\).
 
             Now, we can calculate the time duration (t) using the formula:
@@ -650,18 +650,70 @@
             t)\) as follows:
 
             \begin{align*}
-                V_l & = 1.5 \cdot \omega = 1.5 \cdot 1 \, \text{rad/s} = 1.5 \, \text{rad/s}    \\
-                V_r & = 0.5 \cdot \omega = 0.5 \cdot 1 \, \text{rad/s} = 0.5 \, \text{rad/s}    \\
-                t   & = \frac{2\pi}{\omega} = \frac{2\pi}{1 \, \text{rad/s}} = 2\pi \, \text{s}
+                V_l & = 1.5 \cdot \omega = 1.5 \cdot 1  = 1.5                    \\
+                V_r & = 0.5 \cdot \omega = 0.5 \cdot 1  = 0.5                    \\
+                t   & = \frac{2\pi}{\omega} = \frac{2\pi}{1 } = 2\pi \, \text{s}
             \end{align*}
 
             So, assuming \(\omega\) to be 1 radian, we have:
 
             \[
-                (V_l, V_r, t) = (1.5 \, \text{rad/s}, 0.5 \, \text{rad/s}, 2\pi \, \text{s})
+                (V_l, V_r, t) = (1.5 , 0.5 , 2\pi \, \text{s})
             \]
         \end{solution}
         \part Part b
+        \begin{solution}
+            Current pose of the robot is given by:
+            \begin{align*}
+                \text{Pose} & = \begin{bmatrix}
+                                    1        \\
+                                    1        \\
+                                    90^\circ \\
+                                \end{bmatrix}
+            \end{align*}
+            The desired pose of the robot is given by:
+            \begin{align*}
+                \text{Pose} & = \begin{bmatrix}
+                                    3        \\
+                                    1        \\
+                                    90^\circ \\
+                                \end{bmatrix}
+            \end{align*}
+            We can break our path into two commands, one semi circle and one 180 degree rotation about its center.
+            Firstly, we will move our robot along the same path as in part a, but this time we will stop when the robot reaches the point (3, 1) in the world frame. The command for this path is given by:
+            \begin{align*}
+                (V_l, V_r, t) & = (1.5\cdot\omega, 0.5\cdot\omega, t)
+            \end{align*}
+            Since we only need to cover half the circle, the distance is $\pi$ instead of $2\pi$ and assuming \(\omega\) to be 1 radian, we can calculate the time duration (t) as follows:
+            \begin{align*}
+                t & = \frac{\text{Distance}}{V} = \pi
+            \end{align*}
+            So, to make one semi circle and reach the point (3, 1), you can send the following command to the robot:
+            \begin{align*}
+                (V_l, V_r, t) & = (1.5, 0.5, \pi)
+            \end{align*}
+            Now, we need to rotate the robot about its center by 180 degrees. We can calculate the wheel velocities as follows:
+            The ICC is the midpoint between the wheels, so $R = 0$.
+            \begin{align*}
+                V_r & = (0 - \frac{1}{2}) \cdot \omega = - 0.5 \cdot \omega \\
+                V_l & = (0 + \frac{1}{2}) \cdot \omega = 0.5 \cdot \omega
+            \end{align*}
+            The distance to cover is $2\pi r$, $r = L/2 = 0.5$ and since we are rotating by 180 degrees, the distance is $\frac{1}{4} \pi$.
+            \begin{align*}
+                t & = \frac{\text{Distance}}{V} = \frac{\frac{1}{4} \pi}{\omega}
+            \end{align*}
+            Assuming \(\omega\) to be 1 radian, we can calculate the values of \((V_l, V_r, t)\) as follows:
+            \begin{align*}
+                V_l & = 0.5 \cdot \omega = 0.5 \cdot 1  = 0.5                                                     \\
+                V_r & = - 0.5 \cdot \omega = - 0.5 \cdot 1  = - 0.5                                               \\
+                t   & = \frac{\frac{1}{4} \pi}{\omega} = \frac{\frac{1}{4} \pi}{1 } = \frac{1}{4} \pi \, \text{s}
+            \end{align*}
+            We can send the following command to the robot:
+            \begin{align*}
+                (V_l, V_r, t) & = (0.5, - 0.5, \frac{1}{4} \pi)
+            \end{align*}
+        \end{solution}
+        \part Part c
         \begin{solution}
             
         \end{solution}
